@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-box" style="background-color: chartreuse;">
+        <template if:true={allCustomer}>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={allCustomer} for:item="cust">
+                    <div class="slds-col slds-size_1-of-3 slds-var-p-around_small" key={cust.Email_Address__c}>
+                        <lightning-card title={cust.Name} key={cust.Email_Address__c}>
+                            <p class="slds-p-horizontal_small">Mobile No.: {cust.Contact_Number__c}</p>
+                            <div class="slds-box" style="background-color:cornsilk;">
+                                <lightning-card title="Delivery Address" key={cust.Email_Address__c}>
+                                    <p class="slds-p-horizontal_small">Street: {cust.Street__c}</p>
+                                    <p class="slds-p-horizontal_small">City: {cust.City__c}</p>
+                                    <p class="slds-p-horizontal_small">Pin Code: {cust.Pin_Code__c}</p>
+                                </lightning-card>
+                                
+                            </div>
+                            <div class="slds-box" style="background-color:cornsilk;">
+                                <lightning-card title="Pickup Address" key={cust.Email_Address__c}>
+                                    <h2 class="slds-p-horizontal_medium"> {cust.Restaurant__r.Name}</h2>
+                                    <p class="slds-p-horizontal_small">Street: {cust.Restaurant__r.Street__c}</p>
+                                    <p class="slds-p-horizontal_small">City: {cust.Restaurant__r.City__c}</p>
+                                    <p class="slds-p-horizontal_small">Pin Code: {cust.Restaurant__r.Pin_Code__c}</p>
+                                </lightning-card>
+                                
+                            </div>
+                            <p slot="footer">{cust.Email_Address__c}</p>                            
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

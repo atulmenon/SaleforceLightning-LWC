@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-box" style="background-color: chartreuse;">
+        <template if:true={orderDetail}>
+            <div class="slds-grid sld-wrapper">
+                <template for:each={orderDetail} for:item="order">
+                    <div class="slds-col slds-size_1-of-3 slds-var-p-around_small" key={order.Id}>
+                        <lightning-card title="Order Details" >
+                            <div class="slds-box" style="background-color:cornsilk;">
+                                <p class="slds-p-horizontal_small">Rider Name: {order.Name}</p>
+                                    <p class="slds-p-horizontal_small">Food : {order.Food__r.Name}</p>
+                                    <p class="slds-p-horizontal_small">Food Price: {order.Food__r.Food_Price__c}</p>
+                            </div>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

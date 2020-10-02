@@ -1,0 +1,19 @@
+<apex:page standardController="CUstomer__c" renderAs="pdf">
+    <apex:form>
+        <apex:pageBlock title="Order Invoice">
+            <apex:pageBlockSection title="Customer Detail">
+                <apex:outputField label="Customer Name: " value="{!Customer__c.Name}"/>
+                <apex:outputField label="Mobile No.: " value="{!Customer__c.Contact_Number__c}"/>
+                <apex:outputField label="Customer Email Id: " value="{!Customer__c.Email_Address__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Order Detail And Other Charges">
+                <apex:outputField label="Restaurant Name: " value="{!Customer__c.Restaurant__r.Name}"/>
+                <apex:outputField label="Food Name: " value="{!Customer__c.Food__r.Name}"/>
+                <apex:outputField label="Food Price: " value="{!Customer__c.Food__r.Food_Price__c}"/>
+                <apex:outputField label="Total Rider Charge: " value="{!Customer__c.Rider__r.Final_Rider_Charge__c}"/>
+                <apex:outputField label="Total Cost: " value="{!Customer__c.Total_Cost__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>
